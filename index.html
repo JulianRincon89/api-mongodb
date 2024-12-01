@@ -4,107 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Gestión de Empleados y Productos</title>
+    <title>Gestión de Nómina y Productos</title>
 </head>
 <body>
-    <h1>Gestión de Nómina y Productos</h1>
+    <header>
+        <h1>Gestión de Nómina y Productos</h1>
+    </header>
 
-    <!-- Buscar empleados -->
-    <section>
-        <h2>Buscar Empleados</h2>
-        <input type="text" id="search-name" placeholder="Buscar por nombre">
-        <button onclick="searchEmployee()">Buscar</button>
-        <div id="search-results"></div>
-    </section>
+    <main>
+        <!-- Gestión de empleados -->
+        <section>
+            <h2>Gestión de Empleados</h2>
 
-    <!-- Agregar empleados -->
-    <section>
-        <h2>Agregar Empleado</h2>
-        <form id="add-employee-form">
-            <input type="text" id="emp-name" placeholder="Nombre" required>
-            <input type="text" id="emp-lastname" placeholder="Apellido" required>
-            <input type="email" id="emp-email" placeholder="Correo" required>
-            <input type="text" id="emp-address" placeholder="Dirección" required>
-            <input type="text" id="emp-role" placeholder="Cargo" required>
-            <input type="number" id="emp-salary" placeholder="Salario" required>
-            <button type="button" onclick="addEmployee()">Agregar</button>
-        </form>
-    </section>
+            <!-- Buscar empleados -->
+            <h3>Buscar Empleados</h3>
+            <div class="form-container">
+                <input type="text" id="search-name" placeholder="Buscar por nombre">
+                <button onclick="searchEmployee()">Buscar</button>
+            </div>
+            <div id="search-results" class="results-container"></div>
 
-    <!-- Eliminar empleados -->
-    <section>
-        <h2>Eliminar Empleado</h2>
-        <input type="text" id="delete-id" placeholder="ID del empleado">
-        <button onclick="deleteEmployee()">Eliminar</button>
-    </section>
+            <!-- Agregar empleados -->
+            <h3>Agregar Empleado</h3>
+            <form id="add-employee-form" class="form-container">
+                <input type="text" id="emp-name" placeholder="Nombre" required>
+                <input type="text" id="emp-lastname" placeholder="Apellido" required>
+                <input type="email" id="emp-email" placeholder="Correo" required>
+                <input type="text" id="emp-address" placeholder="Dirección" required>
+                <input type="text" id="emp-role" placeholder="Cargo" required>
+                <input type="number" id="emp-salary" placeholder="Salario" required>
+                <button type="button" onclick="addEmployee()">Agregar</button>
+            </form>
 
-    <!-- Mostrar empleados -->
-    <section>
-        <h2>Lista de Empleados</h2>
-        <button onclick="fetchEmployees()">Cargar Nómina</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo</th>
-                    <th>Cargo</th>
-                    <th>Salario</th>
-                </tr>
-            </thead>
-            <tbody id="employee-table"></tbody>
-        </table>
-    </section>
+            <!-- Eliminar empleados -->
+            <h3>Eliminar Empleado</h3>
+            <div class="form-container">
+                <input type="text" id="delete-id" placeholder="ID del empleado">
+                <button onclick="deleteEmployee()">Eliminar</button>
+            </div>
+
+            <!-- Actualizar empleados -->
+            <h3>Actualizar Empleado</h3>
+            <form id="update-employee-form" class="form-container">
+                <input type="text" id="update-emp-id" placeholder="ID del empleado" required>
+                <input type="text" id="update-emp-name" placeholder="Nuevo Nombre" required>
+                <input type="text" id="update-emp-lastname" placeholder="Nuevo Apellido" required>
+                <input type="email" id="update-emp-email" placeholder="Nuevo Correo" required>
+                <input type="text" id="update-emp-address" placeholder="Nueva Dirección" required>
+                <input type="text" id="update-emp-role" placeholder="Nuevo Cargo" required>
+                <input type="number" id="update-emp-salary" placeholder="Nuevo Salario" required>
+                <button type="button" onclick="updateEmployee()">Actualizar</button>
+            </form>
+
+            <!-- Mostrar empleados -->
+            <h3>Lista de Empleados</h3>
+            <button class="load-button" onclick="fetchEmployees()">Cargar Nómina</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Cargo</th>
+                        <th>Salario</th>
+                    </tr>
+                </thead>
+                <tbody id="employee-table"></tbody>
+            </table>
+        </section>
+
+        <!-- Gestión de productos -->
+        <section>
+            <h2>Gestión de Productos</h2>
+
+            <!-- Buscar productos -->
+            <h3>Buscar Productos</h3>
+            <div class="form-container">
+                <input type="text" id="search-product-name" placeholder="Buscar por nombre">
+                <button onclick="searchProduct()">Buscar</button>
+            </div>
+            <div id="search-product-results" class="results-container"></div>
+
+            <!-- Agregar productos -->
+            <h3>Agregar Producto</h3>
+            <form id="add-product-form" class="form-container">
+                <input type="text" id="prod-name" placeholder="Nombre" required>
+                <input type="text" id="prod-category" placeholder="Categoría" required>
+                <input type="text" id="prod-image" placeholder="URL de Imagen" required>
+                <input type="text" id="prod-model" placeholder="Modelo" required>
+                <input type="text" id="prod-series" placeholder="Serie" required>
+                <input type="text" id="prod-brand" placeholder="Marca" required>
+                <input type="text" id="prod-manufacturer" placeholder="Fabricante" required>
+                <button type="button" onclick="addProduct()">Agregar Producto</button>
+            </form>
+
+            <!-- Eliminar productos -->
+            <h3>Eliminar Producto</h3>
+            <div class="form-container">
+                <input type="text" id="delete-product-id" placeholder="ID del producto">
+                <button onclick="deleteProduct()">Eliminar Producto</button>
+            </div>
+
+            <!-- Actualizar productos -->
+            <h3>Actualizar Producto</h3>
+            <form id="update-product-form" class="form-container">
+                <input type="text" id="update-prod-id" placeholder="ID del producto" required>
+                <input type="text" id="update-prod-name" placeholder="Nuevo Nombre" required>
+                <input type="text" id="update-prod-category" placeholder="Nueva Categoría" required>
+                <input type="text" id="update-prod-image" placeholder="Nueva URL de Imagen" required>
+                <input type="text" id="update-prod-model" placeholder="Nuevo Modelo" required>
+                <input type="text" id="update-prod-series" placeholder="Nueva Serie" required>
+                <input type="text" id="update-prod-brand" placeholder="Nueva Marca" required>
+                <input type="text" id="update-prod-manufacturer" placeholder="Nuevo Fabricante" required>
+                <button type="button" onclick="updateProduct()">Actualizar Producto</button>
+            </form>
+
+            <!-- Mostrar productos -->
+            <h3>Lista de Productos</h3>
+            <button class="load-button" onclick="fetchProducts()">Cargar Productos</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Imagen</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Fabricante</th>
+                    </tr>
+                </thead>
+                <tbody id="product-table"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Gestión de Nómina y Productos © 2024</p>
+    </footer>
 
     <script src="fetchapi.js"></script>
-
-<!-- Sección para productos -->
-<section>
-    <h2>Gestión de Productos</h2>
-    
-    <!-- Buscar productos -->
-    <h3>Buscar Productos</h3>
-    <input type="text" id="search-product-name" placeholder="Buscar por nombre">
-    <button onclick="searchProduct()">Buscar</button>
-    <div id="search-product-results"></div>
-
-    <!-- Agregar productos -->
-    <h3>Agregar Producto</h3>
-    <form id="add-product-form">
-        <input type="text" id="prod-name" placeholder="Nombre" required>
-        <input type="text" id="prod-category" placeholder="Categoría" required>
-        <input type="text" id="prod-image" placeholder="URL de Imagen" required>
-        <input type="text" id="prod-model" placeholder="Modelo" required>
-        <input type="text" id="prod-series" placeholder="Serie" required>
-        <input type="text" id="prod-brand" placeholder="Marca" required>
-        <input type="text" id="prod-manufacturer" placeholder="Fabricante" required>
-        <button type="button" onclick="addProduct()">Agregar Producto</button>
-    </form>
-
-    <!-- Eliminar productos -->
-    <h3>Eliminar Producto</h3>
-    <input type="text" id="delete-product-id" placeholder="ID del producto">
-    <button onclick="deleteProduct()">Eliminar Producto</button>
-
-    <!-- Mostrar productos -->
-    <h3>Lista de Productos</h3>
-    <button onclick="fetchProducts()">Cargar Productos</button>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Imagen</th>
-                <th>Modelo</th>
-                <th>Marca</th>
-                <th>Fabricante</th>
-            </tr>
-        </thead>
-        <tbody id="product-table"></tbody>
-    </table>
-</section>
-
 </body>
 </html>
